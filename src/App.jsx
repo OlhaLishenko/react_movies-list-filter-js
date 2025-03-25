@@ -8,19 +8,19 @@ function getFiltered(text) {
 }
 
 function getPreparedItems(movies, { query }) {
-  let preparedGood = [...movies];
+  const preparedMovies = [...movies];
 
   if (query) {
     const parameters = getFiltered(query);
 
-    preparedGood = preparedGood.filter(
+    return preparedMovies.filter(
       item =>
         getFiltered(item.title).includes(parameters) ||
         getFiltered(item.description).includes(parameters),
     );
   }
 
-  return preparedGood;
+  return preparedMovies;
 }
 
 export const App = () => {
